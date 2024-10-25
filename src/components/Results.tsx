@@ -21,7 +21,7 @@ const Results: React.FC = () => {
 
                 // Fetch performance data from Google PageSpeed Insights API
                 const { data } = await axios.get(
-                    `https://www.googleapis.com/pagespeedonline/v5/runPagespeed?url=${url}&key=AIzaSyAIlzcp0uUXHP-jkRBH3npJ67uSPfSGzYU`
+                    `https://www.googleapis.com/pagespeedonline/v5/runPagespeed?url=${url}&key=${process.env.REACT_APP_GOOGLE_API_KEY}`
                 );
                 setPerformanceData(data);
 
@@ -51,7 +51,7 @@ const Results: React.FC = () => {
                     },
                     {
                         headers: {
-                            'Authorization': `Bearer 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`,
+                            'Authorization': `Bearer ${process.env.REACT_APP_OPENAI_API_KEY}`,
                             'Content-Type': 'application/json',
                         },
                     }
